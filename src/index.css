@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #061b0e;
+  --color-primary-container: #1b3022;
+  --color-on-primary: #ffffff;
+  --color-secondary: #476553;
+  --color-secondary-container: #c9ebd4;
+  --color-on-secondary-container: #4d6b59;
+  --color-tertiary-fixed: #dae8be;
+  --color-on-tertiary-fixed: #141f05;
+  --color-surface: #faf9f7;
+  --color-surface-container-low: #f4f3f1;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #1a1c1b;
+  --color-on-surface-variant: #434843;
+  --color-outline-variant: #c3c8c1;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Range Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #c9ebd4;
+  border-radius: 4px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: #061b0e;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -10px;
+  box-shadow: 0 4px 12px rgba(6, 27, 14, 0.2);
+  border: 2px solid #ffffff;
+  transition: transform 0.2s ease;
+}
+
+input[type=range]:active::-webkit-slider-thumb {
+  transform: scale(1.1);
+}
