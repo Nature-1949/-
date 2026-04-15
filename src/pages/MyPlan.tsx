@@ -11,16 +11,16 @@ export default function MyPlan() {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="px-6 space-y-12"
+      className="space-y-12"
     >
       {/* Header */}
-      <section className="mt-8">
+      <section className="mt-8 px-6">
         <span className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary mb-3 block">Checkout Summary</span>
         <h2 className="text-5xl font-black text-primary tracking-tighter leading-tight">确认租赁方案</h2>
       </section>
 
       {/* Selected Plants Portfolio */}
-      <section className="space-y-6">
+      <section className="space-y-6 px-4">
         {selectedPlants.map((plant) => (
           <div key={plant.id} className="flex items-center gap-6 p-5 bg-white rounded-3xl group hover:bg-surface-container-low transition-all duration-500 border border-surface-container-low">
             <div className="w-24 h-32 rounded-2xl overflow-hidden bg-surface-container-low shrink-0 shadow-sm">
@@ -45,7 +45,7 @@ export default function MyPlan() {
       </section>
 
       {/* Cost Breakdown Card */}
-      <section className="bg-surface-container-low rounded-[2.5rem] p-10 shadow-[0_20px_50px_-20px_rgba(6,27,14,0.03)] border border-white">
+      <section className="bg-surface-container-low rounded-3xl p-10 shadow-[0_20px_50px_-20px_rgba(6,27,14,0.03)] border border-white mx-4">
         <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-secondary mb-8 opacity-60">费用概览 · Summary</h4>
         <div className="space-y-6">
           <div className="flex justify-between items-center">
@@ -62,7 +62,12 @@ export default function MyPlan() {
           <div className="h-px bg-outline-variant/20 my-6" />
           <div className="flex justify-between items-end pt-2">
             <div>
-              <span className="text-sm font-black text-primary block mb-1">首次支付总额</span>
+              <span 
+                className="text-sm font-black text-primary block mb-1"
+                style={{ width: '85.6979px' }}
+              >
+                首次支付总额
+              </span>
               <span className="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold opacity-40">Total First Payment</span>
             </div>
             <div className="flex items-baseline gap-1">
@@ -74,7 +79,7 @@ export default function MyPlan() {
       </section>
 
       {/* Agreements & CTA */}
-      <section className="space-y-8 pb-12">
+      <section className="space-y-8 pb-12 px-6">
         <div className="space-y-4">
           <label className="flex items-start gap-4 cursor-pointer group">
             <div className="mt-1 relative">

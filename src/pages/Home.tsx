@@ -11,10 +11,10 @@ export default function Home() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-4 space-y-8"
+      className="space-y-8"
     >
       {/* Hero Banner */}
-      <section className="relative rounded-2xl overflow-hidden bg-primary aspect-[21/9] flex items-center p-6 group cursor-pointer mt-4">
+      <section className="relative rounded-2xl overflow-hidden bg-primary aspect-[21/9] flex items-center px-6 py-6 group cursor-pointer mx-4 mt-4">
         <div className="relative z-10">
           <h2 className="text-white text-2xl font-extrabold mb-1">空间方案定制</h2>
           <p className="text-white/70 text-xs">专业园艺师上门规划 · 一站式租摆</p>
@@ -77,7 +77,6 @@ export default function Home() {
                   <span className="text-primary font-extrabold text-lg">¥{plant.price}</span>
                   <span className="text-[10px] text-on-surface/40 font-bold uppercase tracking-widest">/月起</span>
                 </div>
-                <p className="text-[9px] text-on-surface/30 mt-1">* 最短租期 3 个月起</p>
                 <button className="w-full mt-3 py-2.5 bg-primary text-white rounded-xl text-[11px] font-bold active:scale-95 transition-transform">
                   立即预约
                 </button>
@@ -88,7 +87,7 @@ export default function Home() {
       </div>
 
       {/* Why Us */}
-      <section className="p-8 bg-surface-container-low rounded-3xl border border-surface-container-low">
+      <section className="px-6 py-8 bg-surface-container-low rounded-3xl border border-surface-container-low mx-4">
         <h4 className="font-extrabold text-primary text-lg mb-6">为什么选择森息 · Flora Lease？</h4>
         <div className="grid grid-cols-2 gap-8">
           <div className="space-y-2">

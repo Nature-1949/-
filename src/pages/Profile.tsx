@@ -21,10 +21,10 @@ export default function Profile() {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-6 space-y-10 pb-12"
+      className="space-y-10 pb-12"
     >
       {/* Profile Header */}
-      <section className="flex flex-col items-center text-center space-y-4 mt-8">
+      <section className="flex flex-col items-center text-center space-y-4 mt-8 px-6">
         <div className="relative">
           <div className="w-28 h-28 rounded-full bg-surface-container-low p-1 shadow-inner">
             <div className="w-full h-full flex items-center justify-center bg-white rounded-full text-primary shadow-sm">
@@ -42,7 +42,7 @@ export default function Profile() {
       </section>
 
       {/* Member Center Card */}
-      <section>
+      <section className="px-4">
         <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary-container to-primary rounded-[2.5rem] p-8 text-white shadow-2xl">
           <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-tertiary-fixed/10 rounded-full blur-3xl" />
           <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-32 h-32 bg-white/5 rounded-full blur-2xl" />
@@ -85,7 +85,7 @@ export default function Profile() {
       </section>
 
       {/* Account / Credit Status */}
-      <section className="grid grid-cols-2 gap-6">
+      <section className="grid grid-cols-2 gap-6 px-4">
         <div className="bg-white p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.02)] flex flex-col justify-between aspect-square border border-surface-container-low">
           <div>
             <div className="w-10 h-10 rounded-2xl bg-surface-container-low flex items-center justify-center">
@@ -94,7 +94,12 @@ export default function Profile() {
             <h3 className="mt-6 text-[10px] font-black text-primary tracking-[0.2em] uppercase opacity-40">账户余额</h3>
           </div>
           <div>
-            <span className="text-2xl font-black text-primary tracking-tighter">¥ 768.58</span>
+            <span 
+              className="font-black text-primary tracking-tighter"
+              style={{ width: '94px', height: 'auto', fontSize: '22px' }}
+            >
+              ¥ 768.58
+            </span>
             <p className="text-[9px] text-outline-variant mt-2 uppercase tracking-[0.2em] font-black opacity-60">Available Credit</p>
           </div>
         </div>
@@ -120,7 +125,7 @@ export default function Profile() {
       </section>
 
       {/* My Leases */}
-      <section className="space-y-6">
+      <section className="space-y-6 px-6">
         <div className="flex justify-between items-end">
           <h2 className="text-2xl font-black text-primary tracking-tight">我的租赁</h2>
           <span className="text-[10px] text-secondary font-black uppercase tracking-widest border-b-2 border-tertiary-fixed pb-1">查看全部记录</span>
@@ -137,8 +142,26 @@ export default function Profile() {
           </div>
           <div className="flex-1">
             <div className="flex justify-between items-start">
-              <h4 className="font-black text-primary text-sm tracking-tight">锦绣年华 · 黄蝉兰</h4>
-              <span className="text-[8px] font-black bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full uppercase tracking-widest">进行中</span>
+              <h4 
+                className="font-black text-primary text-sm tracking-tight"
+                style={{ width: '109.1771px' }}
+              >
+                锦绣年华 · 黄蝉兰
+              </h4>
+              <span 
+                className="font-black bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full uppercase tracking-widest"
+                style={{ 
+                  width: '46.9792px', 
+                  paddingLeft: '9px',
+                  marginLeft: '12px',
+                  marginRight: '0px',
+                  marginBottom: '3px',
+                  marginTop: '1px',
+                  fontSize: '9px'
+                }}
+              >
+                进行中
+              </span>
             </div>
             <p className="text-[10px] text-secondary font-bold mt-2 opacity-60">下轮养护: 2026.04.12</p>
           </div>
@@ -168,7 +191,7 @@ export default function Profile() {
       </section>
 
       {/* Management List */}
-      <section className="bg-white rounded-[2.5rem] p-4 space-y-2 border border-surface-container-low shadow-sm">
+      <section className="bg-white rounded-3xl p-4 space-y-2 border border-surface-container-low shadow-sm mx-4">
         {[
           { icon: MapPin, label: '地址管理' },
           { icon: Award, label: '会员中心' },
@@ -189,7 +212,7 @@ export default function Profile() {
       </section>
 
       {/* Community Section */}
-      <section className="bg-surface-container-low rounded-[2.5rem] p-8 flex items-center justify-between gap-8 border border-white shadow-sm">
+      <section className="bg-surface-container-low rounded-3xl p-8 flex items-center justify-between gap-8 border border-white shadow-sm mx-4">
         <div className="flex-1 space-y-4">
           <h3 className="text-xl font-black text-primary tracking-tighter">加入社群，尽享优惠</h3>
           <p className="text-[11px] text-secondary font-bold leading-relaxed opacity-60">获取更多养护技巧与福利，与万千植友共同开启绿色生活。</p>

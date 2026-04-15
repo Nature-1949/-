@@ -4,14 +4,16 @@ import { Droplets, ChevronLeft, ChevronRight, Calendar as CalendarIcon, Scissors
 import { cn } from '../lib/utils';
 
 export default function Maintenance() {
+  const [selectedDay, setSelectedDay] = React.useState(12);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="px-6 space-y-12"
+      className="space-y-12"
     >
       {/* Header */}
-      <header className="mt-8 space-y-3">
+      <header className="mt-8 space-y-3 px-6">
         <div className="flex items-center gap-3 text-secondary text-[10px] font-black tracking-[0.3em] uppercase opacity-60">
           <span className="w-10 h-px bg-secondary/30" />
           Maintenance Portfolio
@@ -20,8 +22,8 @@ export default function Maintenance() {
       </header>
 
       {/* Status Bento Cards */}
-      <section className="grid grid-cols-1 gap-6">
-        <div className="bg-white p-10 rounded-[2.5rem] shadow-[0_20px_50px_-12px_rgba(6,27,14,0.03)] flex flex-col justify-between overflow-hidden relative group border border-surface-container-low">
+      <section className="grid grid-cols-1 gap-6 px-6">
+        <div className="bg-white p-12 rounded-3xl shadow-[0_20px_50px_-12px_rgba(6,27,14,0.03)] flex flex-col justify-between overflow-hidden relative group border border-surface-container-low">
           <div className="absolute -right-8 -top-8 opacity-5 group-hover:scale-110 transition-transform duration-1000">
             <Leaf size={240} />
           </div>
@@ -42,7 +44,7 @@ export default function Maintenance() {
           </div>
         </div>
 
-        <div className="bg-primary-container p-10 rounded-[2.5rem] flex flex-col justify-between text-white relative overflow-hidden">
+        <div className="bg-primary-container p-12 rounded-3xl flex flex-col justify-between text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl" />
           <div className="flex justify-between items-start relative z-10">
             <div>
@@ -68,7 +70,7 @@ export default function Maintenance() {
       </section>
 
       {/* Calendar View */}
-      <section className="bg-surface-container-low p-10 rounded-[2.5rem] border border-white">
+      <section className="bg-surface-container-low p-10 rounded-3xl border border-white mx-4">
         <div className="flex justify-between items-center mb-10">
           <h3 className="text-xl font-black text-primary tracking-tight">四月 2026</h3>
           <div className="flex gap-4">
@@ -88,7 +90,7 @@ export default function Maintenance() {
         <div className="grid grid-cols-7 gap-y-4">
           {Array.from({ length: 35 }).map((_, i) => {
             const day = i - 5;
-            const isToday = day === 12;
+            const isSelected = day === selectedDay;
             const hasEvent = day === 3 || day === 12;
             
             if (day < 1 || day > 30) {
@@ -97,18 +99,24 @@ export default function Maintenance() {
             
             return (
               <div key={i} className="aspect-square flex items-center justify-center relative">
-                <div className={cn(
-                  "w-10 h-10 flex items-center justify-center rounded-2xl text-[13px] font-black transition-all",
-                  isToday ? "bg-primary text-white shadow-xl scale-125" : "text-primary hover:bg-white"
-                )}>
+                <button 
+                  onClick={() => setSelectedDay(day)}
+                  className={cn(
+                    "w-10 h-10 flex items-center justify-center rounded-2xl text-[13px] font-black transition-all duration-300",
+                    isSelected ? "bg-primary text-white shadow-xl scale-125 z-10" : "text-primary hover:bg-white/50"
+                  )}
+                >
                   {day}
-                  {hasEvent && !isToday && (
+                  {hasEvent && !isSelected && (
                     <span className="absolute bottom-1 w-1 h-1 bg-tertiary-fixed rounded-full" />
                   )}
-                  {isToday && (
-                    <span className="absolute -top-1 -right-1 w-3 h-3 bg-error border-2 border-white rounded-full" />
+                  {isSelected && (
+                    <motion.span 
+                      layoutId="selected-indicator"
+                      className="absolute -top-1 -right-1 w-3 h-3 bg-error border-2 border-white rounded-full" 
+                    />
                   )}
-                </div>
+                </button>
               </div>
             );
           })}
@@ -116,21 +124,34 @@ export default function Maintenance() {
       </section>
 
       {/* Service List */}
-      <section className="space-y-8 pb-12">
+      <section className="space-y-8 pb-12 px-6">
         <div className="flex justify-between items-end">
           <h3 className="text-2xl font-black tracking-tight">待执行服务</h3>
           <span className="text-xs font-bold text-secondary opacity-60">October 12th</span>
         </div>
         <div className="space-y-4">
-          <div className="bg-white p-6 rounded-3xl flex items-center gap-6 group hover:bg-surface-bright transition-all cursor-pointer border border-surface-container-low shadow-sm">
+          <div 
+            className="bg-white p-6 rounded-3xl flex items-center gap-6 group hover:bg-surface-bright transition-all cursor-pointer border border-surface-container-low shadow-sm"
+            style={{ width: '314px' }}
+          >
             <div className="w-16 h-16 rounded-2xl bg-tertiary-fixed flex items-center justify-center shrink-0 shadow-inner">
               <Leaf className="text-on-tertiary-fixed w-8 h-8" />
             </div>
             <div className="flex-grow">
-              <h4 className="font-black text-primary text-lg tracking-tight">每周常规巡检</h4>
+              <h4 
+                className="font-black text-primary tracking-tight"
+                style={{ width: '93px', fontSize: '14px' }}
+              >
+                每周常规巡检
+              </h4>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-xs font-bold text-secondary opacity-50">Assigned to:</span>
-                <span className="text-xs font-black text-primary">青诚</span>
+                <span 
+                  className="text-xs font-black text-primary"
+                  style={{ width: '29.8646px' }}
+                >
+                  青诚
+                </span>
               </div>
             </div>
             <div className="text-right">
@@ -144,10 +165,20 @@ export default function Maintenance() {
               <Scissors className="text-primary w-8 h-8" />
             </div>
             <div className="flex-grow">
-              <h4 className="font-black text-primary text-lg tracking-tight">叶片清洁与修剪</h4>
+              <h4 
+                className="font-black text-primary tracking-tight"
+                style={{ width: '97.4375px', fontSize: '14px' }}
+              >
+                叶片清洁与修剪
+              </h4>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-xs font-bold text-secondary opacity-50">Assigned to:</span>
-                <span className="text-xs font-black text-primary">柳荫</span>
+                <span 
+                  className="text-xs font-black text-primary"
+                  style={{ width: '31.3021px' }}
+                >
+                  柳荫
+                </span>
               </div>
             </div>
             <span className="text-[10px] font-black text-secondary uppercase tracking-[0.2em]">History</span>

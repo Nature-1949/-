@@ -5,9 +5,9 @@ import { cn } from '../lib/utils';
 
 export default function Layout() {
   return (
-    <div className="min-h-screen flex flex-col max-w-md mx-auto bg-surface relative shadow-2xl">
+    <div className="min-h-screen flex flex-col bg-surface relative">
       {/* Header */}
-      <header className="fixed top-0 w-full max-w-md z-50 bg-white/95 backdrop-blur-md border-b border-surface-container-low flex justify-between items-center px-6 py-4">
+      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-surface-container-low flex justify-between items-center py-4">
         <div className="flex items-center gap-2">
           <Leaf className="text-primary w-6 h-6" />
           <span className="text-lg font-extrabold tracking-tight text-primary">森息 · Flora Lease</span>
@@ -23,12 +23,12 @@ export default function Layout() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 pt-16 pb-24">
+      <main className="flex-1 pt-16 pb-24 w-full">
         <Outlet />
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 w-full max-w-md bg-white/90 backdrop-blur-lg border-t border-surface-container-low h-20 flex justify-around items-center px-4 z-50 rounded-t-xl">
+      <nav className="fixed bottom-0 w-full bg-white/90 backdrop-blur-lg border-t border-surface-container-low h-20 flex justify-around items-center z-50 rounded-t-xl">
         <NavLink
           to="/"
           className={({ isActive }) =>

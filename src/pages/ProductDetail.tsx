@@ -18,7 +18,7 @@ export default function ProductDetail() {
   return (
     <div className="bg-surface min-h-screen pb-40">
       {/* Top Navigation */}
-      <header className="fixed top-0 w-full max-w-md flex justify-between items-center px-6 h-16 bg-white/80 backdrop-blur-xl z-50">
+      <header className="fixed top-0 w-full flex justify-between items-center h-16 bg-white/80 backdrop-blur-xl z-50 px-6">
         <button 
           onClick={() => navigate(-1)}
           className="p-2 hover:bg-surface-container-low rounded-full transition-colors"
@@ -32,11 +32,11 @@ export default function ProductDetail() {
       </header>
 
       {/* Hero Image */}
-      <section className="relative w-full h-[50vh] overflow-hidden pt-16">
+      <section className="relative w-full h-[60vh] overflow-hidden pt-16 bg-surface-container-low">
         <img
           src={plant.image}
           alt={plant.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain p-4"
           referrerPolicy="no-referrer"
         />
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
@@ -47,11 +47,11 @@ export default function ProductDetail() {
       </section>
 
       {/* Content Canvas */}
-      <div className="px-6 -mt-10 relative z-10">
+      <div className="-mt-10 relative z-10">
         <motion.div 
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          className="bg-white rounded-t-[2.5rem] pt-10 pb-10"
+          className="bg-white pt-10 pb-10 px-6"
         >
           {/* Title and Badges */}
           <div className="flex justify-between items-start mb-8">
@@ -165,11 +165,11 @@ export default function ProductDetail() {
           <div className="mb-10">
             <h3 className="text-xs font-extrabold text-primary uppercase tracking-[0.2em] mb-8">植物物语</h3>
             <div className="flex gap-8 items-start">
-              <div className="w-1/3 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 shadow-lg">
+              <div className="w-1/3 aspect-[3/4] rounded-2xl overflow-hidden shrink-0 shadow-lg bg-surface-container-low p-2">
                 <img
                   src={plant.image}
                   alt="Detail"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   referrerPolicy="no-referrer"
                 />
               </div>
@@ -187,8 +187,8 @@ export default function ProductDetail() {
       </div>
 
       {/* Bottom Action Bar */}
-      <footer className="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-[0_-10px_40px_rgba(6,27,14,0.04)] rounded-t-3xl border-t border-surface-container-low">
-        <div className="px-8 py-6 flex items-center justify-between max-w-md mx-auto">
+      <footer className="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl shadow-[0_-10px_40px_rgba(6,27,14,0.04)] border-t border-surface-container-low">
+        <div className="px-6 py-6 flex items-center justify-between mx-auto">
           <div className="flex flex-col">
             <span className="text-[10px] font-black text-on-surface-variant tracking-[0.2em] uppercase mb-1">预计租金</span>
             <div className="flex items-baseline gap-1">
